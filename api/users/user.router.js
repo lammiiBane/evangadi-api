@@ -1,4 +1,10 @@
 const router = require("express").Router();
+// about.html,contact.html,profile.html
+// BrowuserRouter 
+// -Routes 
+// Route path element
+
+
 
 //importing auth middleware
 const auth = require("../middleware/auth");
