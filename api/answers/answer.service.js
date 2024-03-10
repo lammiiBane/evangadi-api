@@ -1,5 +1,4 @@
 const pool = require("../../config/database");
-
 module.exports = {
   addAnswer: (data, callback) => {
     pool.query(
@@ -14,7 +13,6 @@ module.exports = {
     );
   },
   getAnswers: (questionID, callback) => {
-    // console.log(">>>>>>>getAnswers: questionId: ", questionID);
     pool.query(
       `SELECT answer_id, answer, question_id, registration.user_id, registration.user_name FROM answer LEFT JOIN registration ON answer.user_id = registration.user_id WHERE answer.question_id = ${questionID}`,
       // [questionID],

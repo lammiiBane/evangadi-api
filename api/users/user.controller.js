@@ -33,7 +33,7 @@ module.exports = {
       [email],
       (err, results) => {
         if (err) {
-          return res.status(err).json({ msg: "database connection err" });
+          return res.status(500).json({ msg: "database connection err" });
         }
         if (results.length > 0) {
           return res
@@ -50,7 +50,7 @@ module.exports = {
           register(req.body, (err, results) => {
             if (err) {
               console.log(err);
-              return res.status(500).json({ msg: "database connection err" });
+              return res.status(err).json({ msg: "database connection err" });
             }
 
             //before registration finish, we need to get the user_id from the database accessing through email
@@ -64,7 +64,7 @@ module.exports = {
                     .json({ msg: "database connection err" });
                 }
 
-                //adding user_id to req.body
+                //adding user_id  to req.body
                 req.body.userId = results[0].user_id;
 
                 //sending data to profile with the user_id included in req.body

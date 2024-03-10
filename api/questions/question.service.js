@@ -1,5 +1,4 @@
 const pool = require("../../config/database");
-
 module.exports = {
   addQuestion: (data, callback) => {
     pool.query(
@@ -21,8 +20,6 @@ module.exports = {
           console.log("import questions: database connection error");
           return callback(err);
         }
-        console.log(">>>>>>> importQuestions:  passed");
-        // console.log(">>>>>>>>> importQuestions: ", result);
         return callback(null, result);
       }
     );
